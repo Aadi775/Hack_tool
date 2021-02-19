@@ -1,5 +1,5 @@
 import socket
-from main import get_ip
+from main import get_ip,takeshot
 
 HEADER = 64
 port = 5050
@@ -9,6 +9,11 @@ Addr = (server, port)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(Addr)
+
+if client.recv(HEADER).decodecode('utf8') == "take_shot":
+    shot = take_shot()
+
+
 
 def send(msg):
     message = msg.encode("utf-8")
