@@ -11,6 +11,8 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
 
+
+
 def handle_client(conn, addr):
     print(f"[NEW CONNECTION] {addr} connected.")
 
@@ -25,6 +27,11 @@ def handle_client(conn, addr):
 
             print(f"[{addr}] {msg}")
             conn.send("Msg received".encode(FORMAT))
+        while True:
+            b = input()
+            conn.send(b)
+            if b=="i gave up":
+                break
 
     conn.close()
 
