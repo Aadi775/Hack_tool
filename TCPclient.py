@@ -1,6 +1,6 @@
 
 import socket
-from main import get_ip
+from main import get_ip,destroy
 
 HEADER = 64
 port = 5050
@@ -10,6 +10,7 @@ Addr = (server, port)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(Addr)
+
 
 def send(msg):
     message = msg.encode("utf-8")
@@ -21,5 +22,6 @@ def send(msg):
     print(client.recv(999).decode())
 
 while True:
-    a = input()
-    send(a)
+    if client.recv(HEADER).decode("utf-8")=="destroy":
+        destroy()
+    

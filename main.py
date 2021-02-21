@@ -63,3 +63,5 @@ def destroy():
         `--.____.--'
     """)  
     print("Destroyed")
+
+print(get_ip())
