@@ -37,3 +37,7 @@ def takeshot():
 
     mem_dc.DeleteDC()
     win32gui.DeleteObject(screenshot.GetHandle())
+
+def log():
+    #this is for windows
+    

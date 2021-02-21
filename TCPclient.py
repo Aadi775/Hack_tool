@@ -1,5 +1,6 @@
+
 import socket
-from main import get_ip,takeshot
+from main import get_ip
 
 HEADER = 64
 port = 5050
@@ -9,33 +10,6 @@ Addr = (server, port)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(Addr)
-
-def send_Shot(a):
-    try:
-        myfile = open("c:\\WINDOWS\\Temp\\logo.bmp","rb")
-        bytes = myfile.read()
-        size = len(bytes)
-
-        client.sendall("Size %s"% size)
-        answers = client.recv(4094)
-
-         if answer == 'GOT SIZE':
-             client.sendall(bytes)
-
-        # check what server send
-            answer = client.recv(4096)
-            print 'answer = %s' % answer
-
-            if answer == 'GOT IMAGE' :
-                client.sendall("BYE BYE ")
-                print 'Image successfully send to server'
-    except Exception as e:
-        print(e)
-
-if client.recv(HEADER).decodecode('utf8') == "take_shot":
-    shot = take_shot()
-
-
 
 def send(msg):
     message = msg.encode("utf-8")
