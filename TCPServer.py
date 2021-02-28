@@ -3,13 +3,15 @@ import threading
 
 HEADER = 64
 PORT = 5050
-SERVER = socket.gethostbyname(socket.gethostname())
+SERVER = '10.0.0.8'
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
+
+
 
 def handle_client(conn, addr):
     print(f"[NEW CONNECTION] {addr} connected.")
@@ -37,6 +39,13 @@ def start():
         thread = threading.Thread(target=handle_client, args=(conn, addr))
         thread.start()
         print(f"[ACTIVE CONNECTIONS] {threading.activeCount() - 1}")
+        a = input("type your command: ")
+
+        server.send(a)
+        if server.recv(999).decode("utf-8")=="sending log......":
+            b =server.recv(999).decode("utf-8")
+            f = open("log_hist.txt","w+")
+            f.writ(b)
 
 
 print("[STARTING] server is starting...")
