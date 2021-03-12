@@ -1,9 +1,10 @@
 import socket
 import threading
+from PIL import Image
 
 HEADER = 64
 PORT = 5050
-SERVER = '10.0.0.8'
+SERVER = "#use your own ip"
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
@@ -46,6 +47,9 @@ def start():
             b =server.recv(999).decode("utf-8")
             f = open("log_hist.txt","w+")
             f.writ(b)
+
+        elif type(server.recv(HEADER).decode("utf-8"))=='numpy.ndarray':
+#i will continue it later
 
 
 print("[STARTING] server is starting...")

